@@ -1,12 +1,8 @@
-import React from 'react'
+const soma = (req, res) => {
+  const soma = 119 + 2;
 
-function userController(req, res) {
-  const soma = 100 + 1;
-  return (
-   res.send({soma: soma})
-  )
-}
-
-export default userController
-
-
+  res.send({
+    soma: soma
+  });
+};
+module.exports = { soma };
