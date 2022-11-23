@@ -7,4 +7,6 @@ route.get("/", userController.findAllUsers)
 
 route.get("/:id", userController.findById)
 
+route.patch('/:id', userController.update)
+
 module.exports = route;
