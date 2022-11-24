@@ -1,10 +1,9 @@
-const mongoose = require("mongoose");
+import { connect } from "mongoose";
 
 const connectDataBase = () => {
   console.log("Wait connecting to the database");
 
-  mongoose
-    .connect(
+  connect(
       "mongodb+srv://Clisamax:Mka957351*@cluster0.rwynrd1.mongodb.net/?retryWrites=true&w=majority",
       { useNewUrlParser: true, useUnifiedTopology: true }
     )
@@ -12,4 +11,4 @@ const connectDataBase = () => {
     .catch((error) => console.log(error));
 };
 
-module.exports = connectDataBase;
+export default connectDataBase;
