@@ -1,10 +1,10 @@
 import User from "../models/User.js";
 
-const createService = (body) => create(body);
+const createService = (body) => User.create(body);
 
-const findAllService = () => find();
+const findAllService = () => User.find();
 
-const findByIdService = (id) => findById(id);
+const findByIdService = (id) => User.findById(id);
 
 const updateService = (id, name, username, email, password, avatar) =>
   findByIdAndUpdate(
