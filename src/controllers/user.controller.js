@@ -57,7 +57,7 @@ const update = async (req, res) => {
       res.status(400).send({ message: "submit at least one field for update" });
     }
 
-    const { id /*user*/ } = req;
+    const { id } = req;
 
     const user = await userService.findByIdService(id);
 
@@ -74,5 +74,6 @@ const update = async (req, res) => {
   } catch (err) {
     res.status(500).send({ message: err.message });
   }
+  
 };
 export default { create, findAllUsers, findById, update };
