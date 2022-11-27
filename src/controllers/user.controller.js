@@ -1,22 +1,23 @@
 import userService from "../services/user.services.js"
 
 const create = async (req, res) => {
-  try {
+  try { // garantindo que todos os campos sejam preenchidos.
     const { name, username, email, avatar, password } = req.body;
     if (!name || !username || !email || !avatar || !password) {
       res.status(400).send({ message: "submit all fields for registration" });
     }
+   
 
     const user = await userService.createService(req.body);
 
-    if (!user) {
+    if (!user) {// verifica a existencia do usuario.
       return res.status(400).send({ message: "Error creating User" });
     }
-
+      //creando novo usuario
     res.status(201).send({
       message: "User create successfully",
       user: {
-        id: user._id,
+        id: user._id, // atrelando id do mongodb
         name,
         username,
         email,
@@ -27,12 +28,12 @@ const create = async (req, res) => {
     res.status(500).send({ message: err.message });
   }
 };
-
+// buscando por todos os  usuario
 const findAllUsers = async (req, res) => {
   try {
     const users = await userService.findAllService();
 
-    if (users.length === 0) {
+    if (users.length === 0) { // se não houver usuario cadastrado
       return res.status(400).send({ message: "There are no registered users" });
     }
     res.send(users);
@@ -41,7 +42,7 @@ const findAllUsers = async (req, res) => {
   }
 };
 const findById = async (req, res) => {
-  try {
+  try { // buscando usuario pelo id
     const user = req.user;
 
     res.send(user);
@@ -51,7 +52,8 @@ const findById = async (req, res) => {
 };
 
 const update = async (req, res) => {
-  try {
+  try { 
+    
     const { name, username, email, avatar, password } = req.body;
     if (!name && !username && !email && !avatar && !password) {
       res.status(400).send({ message: "submit at least one field for update" });
