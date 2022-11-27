@@ -50,7 +50,7 @@ const findById = async (req, res) => {
     res.status(500).send({ message: err.message });
   }
 };
-
+// alterar info de user existente
 const update = async (req, res) => {
   try { 
     
