@@ -1,4 +1,4 @@
-import userService from "../services/user.services.js"
+import userService from "../services/user.service.js"
 
 const create = async (req, res) => {
   try { // garantindo que todos os campos sejam preenchidos.
@@ -78,4 +78,4 @@ const update = async (req, res) => {
   }
   
 };
-export default { create, findAllUsers, findById, update };
+export default  { create, findAllUsers, findById, update };
