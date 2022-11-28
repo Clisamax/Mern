@@ -14,18 +14,23 @@ const create = async (req, res) => {
       title,
       text,
       banner,
-      user: "637b134396fa148d14dac064"
+      user: { _id: "637b134396fa148d14dac064" },
     });
 
     res.send(201);
-
   } catch (err) {
     res.status(500).send({ message: err.message });
   }
 };
 
-const findAll = (req, res) => {
-  const news = [];
+const findAll = async (req, res) => {
+  const news = findAllService();
+
+  if (news.length === 0) {
+    // se não houver usuario cadastrado
+    return res.status(400).send({ message: "There are no registered news" });
+  }
+
   send(news);
 };
 
