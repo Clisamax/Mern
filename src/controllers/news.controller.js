@@ -24,14 +24,14 @@ const create = async (req, res) => {
 };
 
 const findAll = async (req, res) => {
-  const news = findAllService();
+  const news = await findAllService();
 
   if (news.length === 0) {
     // se não houver usuario cadastrado
     return res.status(400).send({ message: "There are no registered news" });
   }
 
-  send(news);
+  res.send(news);
 };
 
 export { create, findAll };
