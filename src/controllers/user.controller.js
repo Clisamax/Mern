@@ -79,3 +79,4 @@ const update = async (req, res) => {
   
 };
 export default  { create, findAllUsers, findById, update };
+
